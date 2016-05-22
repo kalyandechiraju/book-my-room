@@ -12,15 +12,17 @@ public class BookingCriteria {
     private String facilities;
     private Date startTime;
     private Date endTime;
+    private String type;
     private User user;
 
     private BookingCriteria() { }
 
-    public BookingCriteria(int capacity, String facilities, Date startTime, Date endTime, User user) {
+    public BookingCriteria(int capacity, String facilities, Date startTime, Date endTime, String type, User user) {
         this.capacity = capacity;
         this.facilities = facilities;
         this.startTime = startTime;
         this.endTime = endTime;
+        this.type = type;
         this.user = user;
     }
 
@@ -38,6 +40,10 @@ public class BookingCriteria {
 
     public Date getEndTime() {
         return endTime;
+    }
+
+    public String getType() {
+        return type;
     }
 
     public User getUser() {

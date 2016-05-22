@@ -5,14 +5,14 @@ import cool.creators.model.User;
 /**
  * Created by kalyandechiraju on 21/05/16.
  */
-public class ConfRoomRemoveData {
+public class ConfRoomDataWithId {
     private Long id;
     private User user;
 
-    private ConfRoomRemoveData() {
+    private ConfRoomDataWithId() {
     }
 
-    public ConfRoomRemoveData(Long id, User user) {
+    public ConfRoomDataWithId(Long id, User user) {
         this.id = id;
         this.user = user;
     }

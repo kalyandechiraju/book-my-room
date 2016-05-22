@@ -45,4 +45,19 @@ public class User {
     private boolean isSameAs(User savedUser) {
         return this.email.equals(savedUser.getEmail()) && savedUser.getHashedPassword().contains(this.hashedPassword);
     }
+
+    public int getUserScore() {
+        switch (designation) {
+            case "CEO":
+                return 4;
+            case "PM":
+                return 3;
+            case "TL":
+                return 2;
+            case "E":
+                return 1;
+            default:
+                return 0;
+        }
+    }
 }

@@ -12,19 +12,17 @@ public class ConfRoomData {
     private int floor;
     private String facilities;
     private boolean isInactive;
-    private boolean isBooked;
     private User user;
 
     private ConfRoomData() { }
 
-    public ConfRoomData(Long id, String name, int capacity, int floor, String facilities, boolean isInactive, boolean isBooked, User user) {
+    public ConfRoomData(Long id, String name, int capacity, int floor, String facilities, boolean isInactive, User user) {
         this.id = id;
         this.name = name;
         this.capacity = capacity;
         this.floor = floor;
         this.facilities = facilities;
         this.isInactive = isInactive;
-        this.isBooked = isBooked;
         this.user = user;
     }
 
@@ -50,10 +48,6 @@ public class ConfRoomData {
 
     public boolean isInactive() {
         return isInactive;
-    }
-
-    public boolean isBooked() {
-        return isBooked;
     }
 
     public User getUser() {

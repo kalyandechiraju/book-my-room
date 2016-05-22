@@ -5,7 +5,9 @@ import com.google.api.server.spi.config.ApiResourceProperty;
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
 import com.googlecode.objectify.annotation.Parent;
+import cool.creators.OfyService;
 
 import java.util.Date;
 
@@ -15,31 +17,33 @@ import java.util.Date;
 @Entity
 public class Booking {
     @Id
-    private String bookingId;
+    private Long bookingId;
     private String type;
-    private Date fromDate;
-    private Date toDate;
+    private Date startTime;
+    private Date endTime;
+    @Index
+    private boolean isExpired;
 
     @Parent
     @ApiResourceProperty(ignored = AnnotationBoolean.TRUE)
     private Key<ConfRoom> roomKey;
 
-    @Parent
     @ApiResourceProperty(ignored = AnnotationBoolean.TRUE)
     private Key<User> userKey;
 
     private Booking() {}
 
-    public Booking(String bookingId, String type, Date fromDate, Date toDate, Key<ConfRoom> roomKey, Key<User> userKey) {
-        this.bookingId = bookingId;
+    public Booking(String type, Date startTime, Date endTime, Key<ConfRoom> roomKey, Key<User> userKey) {
+        this.bookingId = OfyService.factory().allocateId(Booking.class).getId();
         this.type = type;
-        this.fromDate = fromDate;
-        this.toDate = toDate;
+        this.startTime = startTime;
+        this.endTime = endTime;
         this.roomKey = roomKey;
         this.userKey = userKey;
+        this.isExpired = false;
     }
 
-    public String getBookingId() {
+    public Long getBookingId() {
         return bookingId;
     }
 
@@ -47,12 +51,12 @@ public class Booking {
         return type;
     }
 
-    public Date getFromDate() {
-        return fromDate;
+    public Date getStartTime() {
+        return startTime;
     }
 
-    public Date getToDate() {
-        return toDate;
+    public Date getEndTime() {
+        return endTime;
     }
 
     public Key<ConfRoom> getRoomKey() {
@@ -61,5 +65,13 @@ public class Booking {
 
     public Key<User> getUserKey() {
         return userKey;
+    }
+
+    public boolean isExpired() {
+        return isExpired;
+    }
+
+    public void setExpired(boolean expired) {
+        isExpired = expired;
     }
 }

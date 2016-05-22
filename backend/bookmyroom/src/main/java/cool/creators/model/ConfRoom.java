@@ -21,8 +21,6 @@ public class ConfRoom {
     @Index
     private boolean isInactive;
     @Index
-    private boolean isBooked;
-    @Index
     private String facilities;
     @Index
     private boolean delFlag;
@@ -31,12 +29,11 @@ public class ConfRoom {
     }
 
     public ConfRoom(String name, int capacity, int floor, boolean isInactive, boolean isBooked, String facilities, boolean delFlag) {
-        this.roomId = OfyService.factory().allocateId(ConfRoom.class).getId();;
+        this.roomId = OfyService.factory().allocateId(ConfRoom.class).getId();
         this.name = name.toLowerCase().trim();
         this.capacity = capacity;
         this.floor = floor;
         this.isInactive = isInactive;
-        this.isBooked = isBooked;
         this.facilities = facilities;
         this.delFlag = delFlag;
     }
@@ -61,10 +58,6 @@ public class ConfRoom {
         return isInactive;
     }
 
-    public boolean isBooked() {
-        return isBooked;
-    }
-
     public String getFacilities() {
         return facilities;
     }
@@ -77,7 +70,7 @@ public class ConfRoom {
         this.delFlag = delFlag;
     }
 
-    public void update(String name, int capacity, int floor, boolean isInactive, boolean isBooked, String facilities) {
+    public void update(String name, int capacity, int floor, boolean isInactive, String facilities) {
         if (name != null) {
             this.name = name;
         }
@@ -86,13 +79,8 @@ public class ConfRoom {
         }
         this.floor = floor;
         this.isInactive = isInactive;
-        this.isBooked = isBooked;
         if (facilities != null) {
             this.facilities = facilities;
         }
-    }
-
-    public void updateStatus(boolean isBooked) {
-        this.isBooked = isBooked;
     }
 }
