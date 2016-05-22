@@ -11,7 +11,7 @@
     <properties>
         <app.id>your-app-id</app.id>
         <app.version>1</app.version>
-        <appengine.version>1.9.37</appengine.version>
+        <appengine.version>1.9.31</appengine.version>
         <gcloud.plugin.version>2.0.9.74.v20150814</gcloud.plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
@@ -43,6 +43,11 @@
             <groupId>javax.inject</groupId>
             <artifactId>javax.inject</artifactId>
             <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.googlecode.objectify</groupId>
+            <artifactId>objectify</artifactId>
+            <version>5.0</version>
         </dependency>
 
         <!-- Test Dependencies -->
