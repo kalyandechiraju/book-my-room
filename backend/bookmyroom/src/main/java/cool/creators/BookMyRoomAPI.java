@@ -91,10 +91,11 @@ public class BookMyRoomAPI {
 
     @ApiMethod(name = "login", path = "login", httpMethod = ApiMethod.HttpMethod.POST)
     public User login(UserLoginData data) throws UnauthorizedException {
-        User user = new User(data.getEmail(), data.getPassword(), null);
+        User user = new User(data.getEmail(), data.getPassword(), "");
         if(!user.checkIfAuthenticated()) {
             throw new UnauthorizedException("Please enter the correct email and password!");
         }
+        user.removePassword();
         return user;
     }
 
@@ -108,6 +109,7 @@ public class BookMyRoomAPI {
         } else {
             throw new Exception("You have an account already!");
         }
+        user.removePassword();
         return user;
     }
 
@@ -156,6 +158,20 @@ public class BookMyRoomAPI {
         Booking booking = new Booking(data.getType(), data.getStartTime(), data.getEndTime(), confRoomKey, userKey);
         OfyService.ofy().save().entity(booking).now();
         return booking;
+    }
+
+    @ApiMethod(name = "cancelBooking", path = "cancelBooking", httpMethod = ApiMethod.HttpMethod.POST)
+    public ResponseMessage cancelBooking(BookingData data) throws UnauthorizedException {
+        authenticate(new User(data.getUser().getEmail(), data.getUser().getHashedPassword(), ""));
+
+        Key<Booking> key = Key.create(Booking.class, data.getId());
+        try {
+            OfyService.ofy().delete().key(key).now();
+        } catch (Exception e) {
+            return new ResponseMessage("Error! Send the correct booking id. More info: " + e.getMessage());
+        }
+
+        return new ResponseMessage("Success");
     }
 
     private List<ConfRoom> getQualifiedRooms(BookingCriteria criteria, boolean withTimeCheck) {

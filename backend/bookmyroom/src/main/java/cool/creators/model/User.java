@@ -46,6 +46,10 @@ public class User {
         return this.email.equals(savedUser.getEmail()) && savedUser.getHashedPassword().contains(this.hashedPassword);
     }
 
+    public void removePassword() {
+        this.hashedPassword = "";
+    }
+
     public int getUserScore() {
         switch (designation) {
             case "CEO":
