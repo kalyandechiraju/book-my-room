@@ -1,0 +1,75 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" style="color:#FFFFFF">Meeting Room Bookin System</a>
+    </div>
+
+      
+
+    <ul class="nav navbar-nav navbar-right">
+      <li ><a href="#home">Home</a></li>
+      
+      <li class="active"><a href="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+
+
+<div class="row">
+      <div class="col-md-2 col-lg=2 hidden-xs hidden-sm">
+
+      </div>
+<!********************************************************sinip form start******************************************************************>
+<div class="col-md-8 col-xs-12 col-sm-12 col-lg=8" style="margin-top:70px">
+
+<h1 class="text-info" style="margin-left:50px">EMPLOYEE SIGN IN FORM</h1>
+<br>
+  <table class="table table-condensed">
+    
+              <td style="text-align:left;">Email</td>
+           <td style="text-align:left;"><input type="text" ng-model="loginEmail" maxlength="40" class="form-control" name="email" placeholder="Email"/></td>  
+            
+  
+</tr>
+
+
+<tr>
+           <td style="text-align:left;">Password</td>
+           <td style="text-align:left;"><input type="password"  ng-model="loginPassword"  maxlength="20" class="form-control" name="password" placeholder="Password" /></td>     
+  <td style="text-align:left;"><span style="color:red;" id="passwordError"></span></td>
+</tr>
+
+
+
+<tr>
+           <td  style="text-align:center;"><button ng-click="login()"  class="btn btn-default" style="color:#FFFFFF;background-color:#FF3300;font-weight:bold" >login</button></td>
+                
+             <td  style="text-align:center;"><button ng-click="openSignupForm()" class="btn btn-default" style="color:#FFFFFF;background-color:#FF3300;font-weight:bold" >New User?</button></td>
+</tr>
+
+<tr>
+           <td Colspan="2" style="text-align:center;color:red;"><span id="txtHint"></span></td>
+                
+  
+</tr>
+
+
+
+</table>
+<div  ng-show="showLoadingImageFlg"><img class="img-responsive" src="img/loader.gif" alt="please wait"> </div>
+</div>
+<!********************************************************sinip form End******************************************************************>
+       <div class="col-md-2 col-lg=2 hidden-xs hidden-sm">
+
+
+      </div>
+
+</div><!end of row for form>
+
+
+
+
+
+</div><!fluid content end here>

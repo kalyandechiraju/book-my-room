@@ -1,0 +1,65 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" style="color:#FFFFFF">Meeting Room Bookin System</a>
+    </div>
+
+      
+
+    <ul class="nav navbar-nav navbar-right">
+      <li class="active"><a href="#">Home</a></li>
+      
+      <li><a href="#bookinSearch">Book Room</a></li>
+      <li><a >Cancell Booking</a></li>
+      
+    </ul>
+  </div>
+</nav>
+
+
+
+<div class="row">
+      <div class="col-md-2 col-lg=2 hidden-xs hidden-sm">
+
+      </div>
+<!********************************************************data display start from here******************************************************************>
+<div class="col-md-8 col-xs-12 col-sm-12 col-lg=8" style="margin-top:70px">
+
+<LABEL>&nbsp;AREA :
+<select name="meetingPurpose"  ng-model="booking.meetingPurpose" required="">
+      <option value="" >---Please select---</option> <!-- not selected / blank option -->
+      <option value="first">1st Floor</option> <!-- interpolation -->
+      <option value="second">2nd Floor</option>
+      <option value="third">3rd Floor</option> <!-- interpolation -->
+      <option value="forth">4th Floor</option>
+      </select>
+
+   </LABEL>   
+
+<LABEL>&nbsp;Date :
+   <input ng-model="searchDate" datetime-picker date-format="yyyy-MM-dd" size="30"  date-only /> 
+   </LABEL>
+<br><br>
+  <table border="1" style="	border-collapse: collapse; border: 1px solid black;text-align: center; 	width: 100%;padding: 15px;font-family: 'Times New Roman', Times, serif; font-size: 20px;">
+  <tr >
+   <th ng-repeat="column in cols" style="background-color:#4B667B;color:#FFFFFF;height: 50px; text-align: center;padding: 15px;font-size: 30px; font-weight: bold;">{{column}}</th>
+  </tr>
+    <tr ng-repeat="row in rows" ng-class-odd="'trOdd'" ng-class-even="'trEven'">
+     
+      <td ng-repeat="column in cols">{{row[column]}}</td>
+    </tr> 
+</table>
+
+
+</div>
+<!********************************************************sinup form End******************************************************************>
+       <div class="col-md-2 col-lg=2 hidden-xs hidden-sm">
+
+      </div>
+
+</div><!end of row for form>
+
+<div class="row">
+      <div class="col-md-2 col-lg=2 hidden-xs hidden-sm">
+
+      </div>

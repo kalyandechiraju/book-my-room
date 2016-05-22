@@ -1,0 +1,86 @@
+<div class="row">
+      <div class="col-md-2 col-lg=2 hidden-xs hidden-sm">
+
+      </div>
+<!********************************************************sinup form start******************************************************************>
+<div class="col-md-8 col-xs-12 col-sm-12 col-lg=8" style="margin-top:70px">
+<h1 class="text-info" style="margin-left:50px">EMPLOYEE SINGN UP FORM</h1>
+<br>
+ 
+ <form  name="newEmployee"  novalidate>
+
+  <table class="table table-condensed">
+    
+
+<tr>
+           <td style="text-align:left;"><label>Email</label></td>
+           <td style="text-align:left;"><input type="text" ng-model="employee.email"  class="form-control" name="email" placeholder="Email" ng-pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/"  ng-class = "{ 'has-error' : newEmployee.email.$invalid && (!newEmployee.email.$pristine || newEmployee.$submitted) , 'has-success' : newEmployee.email.$valid && (!newEmployee.email.$pristine || newEmployee.$submitted)   }"  required  /></td>  
+           
+           <td style="text-align:left;"><span style="color:red;" ng-show="newEmployee.email.$invalid && (!newEmployee.email.$pristine || newEmployee.$submitted)" >Please enter a valid email address</span></td>   
+  
+
+</tr>
+
+<tr>
+           <td style="text-align:left;"><label>Password</label></td>
+           <td style="text-align:left;"><input type="text" ng-model="employee.password" ng-maxlength="39" ng-minlength="6" class="form-control" name="password" placeholder="******" ng-class = "{ 'has-error' : newEmployee.password.$invalid && (!newEmployee.password.$pristine || newEmployee.$submitted) , 'has-success' : newEmployee.password.$valid && (!newEmployee.password.$pristine || newEmployee.$submitted)   }"  required  /></td>  
+           <td style="text-align:left;"><span style="color:red;" >
+             <p ng-show="newEmployee.password.$error.minlength && !newEmployee.password.$pristine">Password must be greater than 6 character</p>
+             <p ng-show="newEmployee.password.$error.required && !newEmployee.password.$pristine">Please Enter the Passsword</p>
+
+           </span>
+
+           </td>   
+  
+</tr>
+
+
+<tr>
+           <td style="text-align:left;"><label>Designation</label></td>
+           <td style="text-align:left;">
+             
+             
+<select name="designation"  ng-model="employee.designation" required="">
+      <option value="" >---Please select---</option> <!-- not selected / blank option -->
+      <option value="CEO">CEO</option> <!-- interpolation -->
+      <option value="PM">Project Manager</option>
+      <option value="TL">Team Lead</option> <!-- interpolation -->
+      <option value="E">Engineer</option>
+      </select>
+
+   
+
+           </td>  
+           <td style="text-align:left;"><span style="color:red;" >
+             <p ng-show="newEmployee.password.$error.minlength && !newEmployee.password.$pristine">Password must be greater than 6 character</p>
+             <p ng-show="newEmployee.password.$error.required && !newEmployee.password.$pristine">Please Select the designation</p>
+
+           </span>
+
+           </td>   
+  
+</tr>
+
+
+ 
+
+
+
+<tr>
+           <td Colspan="3" style="text-align:center;"><input type="submit" value="Sign Up" class="btn btn-default" style="color:#FFFFFF;background-color:#FF3300;font-weight:bold"  ng-disabled="newEmployee.$invalid"  ng-click="signUP()" /></td>
+                
+  
+</tr>
+
+
+</table>
+
+</form>
+<div  ng-show="showLoadingImageFlg"><img class="img-responsive" src="img/loader.gif" alt="please wait"> </div>
+</div>
+<!********************************************************sinup form End******************************************************************>
+       <div class="col-md-2 col-lg=2 hidden-xs hidden-sm">
+
+      </div>
+
+</div><!end of row for form>

@@ -1,0 +1,185 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" style="color:#FFFFFF">Meeting Room Bookin System</a>
+    </div>
+
+      
+
+    <ul class="nav navbar-nav navbar-right">
+      <li ><a href="#employeeDashboard">Home</a></li>
+      
+      <li class="active"><a href="#bookinSearch">Book Room</a></li>
+      <li><a >Cancell Booking</a></li>
+      
+    </ul>
+  </div>
+</nav>
+
+
+
+<div class="row">
+  <div class="col-md-2 col-lg=2 hidden-xs hidden-sm">
+
+  </div>
+  <!********************************************************sinup form start******************************************************************>
+  <div class="col-md-8 col-xs-12 col-sm-12 col-lg=8" style="margin-top:70px"  >
+    <h1 class="text-info" style="margin-left:50px">Book A Meeting Room</h1>
+    <br>
+
+
+    <form  name="searchRoom"  novalidate>
+
+      <table class="table table-condensed">
+
+
+        <tr>
+         <td style="text-align:left;"><label>Capacity Requirement</label></td>
+         <td style="text-align:left;"><input type="number" ng-model="booking.capacity"  class="form-control" name="capacity"    ng-class = "{ 'has-error' : searchRoom.capacity.$invalid && (!searchRoom.capacity.$pristine || searchRoom.$submitted) , 'has-success' : searchRoom.capacity.$valid && (!searchRoom.capacity.$pristine || searchRoom.$submitted)   }"  min="2" max="30" required  /></td>  
+
+         <td style="text-align:left;"><span style="color:red;" >
+           <p ng-show="searchRoom.capacity.$error.number && !searchRoom.capacity.$pristine">Please enter a valid number</p>
+           <p ng-show="searchRoom.capacity.$error.min && !searchRoom.capacity.$pristine">Capacity requirement should be greater than 2</p>
+           <p ng-show="searchRoom.capacity.$error.max && !searchRoom.capacity.$pristine">Capacity requirement should be less than 30</p>
+           <p ng-show="searchRoom.capacity.$error.required && !searchRoom.capacity.$pristine">Please enter the no. of participant</p>
+         </span>
+       
+       </td>  
+
+
+     </tr>
+
+<tr>
+       <td style="text-align:left;"><label>Start Time</label></td>
+       <td style="text-align:left;" >
+
+         <input ng-model="booking.startDate" name="startDate" datetime-picker date-format="yyyy-MM-dd HH:mm:ss"  size="30" year="2014" month="12" day="31" hour="23" minute="59" />
+
+       </td>  
+       <td style="text-align:left;"><span style="color:red;" >
+       <p ng-show="searchRoom.startDate.$error.required && !searchRoom.startDate.$pristine">Please enter the start date</p>
+       </span>
+
+     </td>   
+
+   </tr>
+
+
+   <tr>
+     <td style="text-align:left;"><label>End Time</label></td>
+     <td style="text-align:left;">
+
+       <input ng-model="booking.endDate" name="endDate" datetime-picker date-format="yyyy-MM-dd HH:mm:ss"  size="30" year="2014" month="12" day="31" hour="23" minute="59" required="" />
+
+     </td>  
+     <td style="text-align:left;"><span style="color:red;" >
+     <p ng-show="searchRoom.endDate.$error.required && !searchRoom.endDate.$pristine">Please enter the end date</p>
+
+     </span>
+
+   </td>   
+
+ </tr>
+
+
+
+ <tr>
+   <td style="text-align:left;"><label>Facility Required</label></td>
+   <td style="text-align:left;">
+
+     <label>White Board :
+       <input type="checkbox" ng-model="booking.facility.WB">
+     </label>
+     <span>,  </span>
+     <label>Projector:
+      <input type="checkbox" ng-model="booking.facility.PR"
+      >
+    </label>
+
+    <span>,  </span>
+    <label>Internet connectivity  :
+     <input type="checkbox" ng-model="booking.facility.IC">
+   </label>
+   <span>,  </span>
+   <label>Wi-fi :
+    <input type="checkbox" ng-model="booking.facility.WF"
+    >
+  </label>
+  <span>,  </span>
+
+  <label>Intercom facility   :
+   <input type="checkbox" ng-model="booking.facility.IF">
+ </label>
+ <span>,  </span>
+ <label>Tele-conferencing facility :
+ <input type="checkbox" ng-model="booking.facility.TC"
+  >
+</label>
+<span>,  </span>
+<label>Video-conferencing facility :
+  <input type="checkbox" ng-model="booking.facility.VC"
+  >
+</label>
+
+
+
+</td>  
+<td style="text-align:left;"><span style="color:red;" >
+
+</span>
+
+</td>   
+
+</tr>
+
+
+
+   <tr>
+     <td style="text-align:left;"><label>Meeting Purpose</label></td>
+     <td style="text-align:left;">
+    
+      <select name="meetingPurpose"  ng-model="booking.meetingPurpose" required="">
+      <option value="" >---Please select---</option> <!-- not selected / blank option -->
+      <option value="SC">Status Call</option> <!-- interpolation -->
+      <option value="TR">Traning</option>
+      <option value="CM">Client Meeting</option> <!-- interpolation -->
+      <option value="TD">Team Discussion</option>
+      </select>
+       
+
+     </td>  
+     <td style="text-align:left;"><span style="color:red;" >
+      <p ng-show="searchRoom.meetingPurpose.$error.required && ! searchRoom.meetingPurpose.$pristine">Please select the purpose of meeting</p>
+
+     </span>
+
+   </td>   
+
+ </tr>
+
+
+
+
+
+
+<tr>
+ <td Colspan="3" style="text-align:center;"><input type="submit" value="Search" class="btn btn-default" style="color:#FFFFFF;background-color:#FF3300;font-weight:bold"  ng-disabled="searchRoom.$invalid" ng-click="search()"  /></td>
+
+
+</tr>
+
+
+</table>
+</form>
+
+
+
+
+
+</div>
+<!********************************************************sinup form End******************************************************************>
+<div class="col-md-2 col-lg=2 hidden-xs hidden-sm">
+
+</div>
+
+</div><!end of row for form>
